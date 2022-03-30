@@ -1,7 +1,9 @@
 def substrings(string, dictionary)
 	frequency_hash = Hash.new()
   dictionary.each do |substring|
-		frequency_hash[substring] = string.downcase.gsub(substring).count if string.downcase.include?(substring)
+    down_string = string.downcase
+    down_substring = substring.downcase
+		frequency_hash[down_substring] = down_string.gsub(down_substring).count if down_string.include?(down_substring)
 	end
 	frequency_hash
 end
