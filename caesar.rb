@@ -34,4 +34,4 @@ def caesar_cipher(string, shift_factor)
   shifted_chars.join("")
 end
 
-puts caesar_cipher("hOla soy justino", 26*30)
+puts caesar_cipher("Hey!! how are you?", 3)
