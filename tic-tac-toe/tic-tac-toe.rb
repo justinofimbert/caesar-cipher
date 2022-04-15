@@ -48,14 +48,11 @@ class Board
 
   def place_choice(player)
     # until player_choice is an int and is between 1 and 9 get their input and is a free space
-    until player_choice
-      user_choice = gets.chomp.strip.to_i - 1
-      if user_choice.between?(0, 8) && user_choice.is_a?(Integer) && !Player.markers.include?(board.flatten[user_choice])
-        player_choice = user_choice
-      end
+    player_choice = false
+    until player_choice.is_a?(Integer) && player_choice.between?(0, 8) && !Player.markers.include?(board.flatten[player_choice])
+      player_choice = gets.chomp.strip.to_i - 1
     end
 
-    player_choice -= 1
     # set player marker to its corresponding position
     board[player_choice / 3][player_choice % 3] = player.marker
   end
