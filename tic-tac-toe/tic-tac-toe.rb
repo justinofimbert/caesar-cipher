@@ -23,7 +23,7 @@ class Player
   def set_marker
     until @marker
       user_input = gets.chomp.strip
-      if user_input.length == 1
+      if user_input.length == 1 && markers.exclude? user_input
         @marker = user_input
         @@markers.push(user_input)
       end
