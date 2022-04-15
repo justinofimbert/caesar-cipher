@@ -40,6 +40,7 @@ class Board
 
   def initialize
     @board = Array.new(3) { Array.new(3, nil) }
+    @positions_occupied = 0
   end
 
   def show
@@ -55,6 +56,8 @@ class Board
 
     # set player marker to its corresponding position
     board[player_choice / 3][player_choice % 3] = player.marker
+
+    @positions_occupied += 1
   end
 
   def check_state(player)
@@ -78,16 +81,26 @@ class Board
     diagonal2 = (2..7).step(2).map { |position| flat_board[position] }
     checks[:diagonal2] = diagonal2.uniq.length == 1 && diagonal2.first == player.marker
 
-    return false unless checks.any? { |_key, value| value == true }
+    if checks.any? { |_key, value| value == true }
+      reset
+      return true
+    end
 
-    reset
-    true
+    if @positions_occupied == 9
+      reset
+      puts "its a tie!"
+    end
+
+    false
   end
 
   private
 
+  attr_accessor :positions_occupied
+
   def reset
     self.board = Array.new(3) { Array.new(3, nil) }
+    @positions_occupied = 0
   end
 end
 
