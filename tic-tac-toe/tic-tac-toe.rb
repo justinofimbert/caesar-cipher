@@ -58,30 +58,29 @@ class Board
   end
 
   def check_state(player)
+    flat_board = board.flatten
     checks = {}
-    # check in each row if an specific player has won
-    checks[:row] = board.any? do |row|
-      return true if row.unique.first == player.marker && row.unique.length == 1
 
-      false
-    end
+    # check in each row if an specific player has won
+    checks[:row] = board.any? { |row| row.first == player.marker && row.uniq.length == 1 }
 
     # check in each column if an specific player has won
-    checks[:column] = 3.times do |column|
-      return true if board[0][column] == player.marker && board.flatten[column..[6 + column]].step(2).unique.length == 1
-
-      false
+    3.times do |column_n|
+      column = (0 + column_n...6 + column_n).step(2).map { |position| flat_board[position] }
+      checks[:column] = true if column.uniq.length == 1 && column.first == player.marker
     end
 
-    diagonal1 = board.flatten.step(3).unique.length == 1 && board[0][0] == player.marker
+    # diagonal1 is the positions from the board that go from top left to bottom right
+    diagonal1 = (0...8).step(3).map { |position| flat_board[position] }
+    checks[:diagonal1] = diagonal1.uniq.length == 1 && diagonal1.first == player.marker
 
-    diagonal2 = board.flatten[2..6].step(1).unique.length == 1 && board[0][2] == player.marker
+    # diagonal2 is the positions from the board that go from top right to bottom left
+    diagonal2 = (2...6).step(1).map { |position| flat_board[position] }
+    checks[:diagonal2] = diagonal2.uniq.length == 1 && diagonal2.first == player.marker
 
-    checks[:diagonals] = diagonal1 || diagonal2
 
     return false unless checks.any? { |_key, value| value == true }
-
-    self.reset
+    reset
     true
   end
 
