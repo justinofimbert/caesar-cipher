@@ -23,7 +23,7 @@ class Player
   def set_marker
     until @marker
       user_input = gets.chomp.strip
-      if user_input.length == 1 && markers.exclude? user_input
+      if user_input.length == 1 && !@@markers.include?(user_input)
         @marker = user_input
         @@markers.push(user_input)
       end
@@ -66,16 +66,16 @@ class Board
 
     # check in each column if an specific player has won
     3.times do |column_n|
-      column = (0 + column_n...6 + column_n).step(2).map { |position| flat_board[position] }
+      column = (0 + column_n..7 + column_n).step(3).map { |position| flat_board[position] }
       checks[:column] = true if column.uniq.length == 1 && column.first == player.marker
     end
 
     # diagonal1 is the positions from the board that go from top left to bottom right
-    diagonal1 = (0...8).step(3).map { |position| flat_board[position] }
+    diagonal1 = (0..9).step(4).map { |position| flat_board[position] }
     checks[:diagonal1] = diagonal1.uniq.length == 1 && diagonal1.first == player.marker
 
     # diagonal2 is the positions from the board that go from top right to bottom left
-    diagonal2 = (2...6).step(1).map { |position| flat_board[position] }
+    diagonal2 = (2..7).step(2).map { |position| flat_board[position] }
     checks[:diagonal2] = diagonal2.uniq.length == 1 && diagonal2.first == player.marker
 
     return false unless checks.any? { |_key, value| value == true }
