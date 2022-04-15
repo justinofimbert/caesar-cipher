@@ -98,17 +98,17 @@ puts 'type player 1 nickname:'
 player1 = Player.new
 puts "I'll refer to player 1 as #{player1.name}, now, set their marker:"
 player1.set_marker
-puts "player1 marker: #{player1.marker}"
+puts "#{player1.name}'s marker: #{player1.marker}"
 
 puts 'now type player 2 nickname'
 player2 = Player.new
-puts "the assigned name is #{player2.name}, its time now time to set their marker:"
+puts "the assigned name is #{player2.name}, its now time to set their marker:"
 player2.set_marker
-puts "player2 marker: #{player2.marker}"
+puts "#{player2.name}'s marker: #{player2.marker}"
 
 loop do
   board.show
-  puts 'player 1 turn'
+  puts "#{player1.name}'s turn"
   board.place_choice(player1)
   if board.check_state(player1)
     game.increase_score(player1)
@@ -119,7 +119,7 @@ loop do
   end
 
   board.show
-  puts 'player 2 turn'
+  puts "#{player2.name}'s turn"
   board.place_choice(player2)
   if board.check_state(player2)
     game.increase_score(player2)
