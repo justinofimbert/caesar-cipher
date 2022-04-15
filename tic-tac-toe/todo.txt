@@ -1,3 +1,4 @@
 1. improve messages to the user
 2. change board so each initial position is a number instead of a nil and
 make it so players are unable to use numbers as markers instead of nils
+3. make it so the game ends when all positions have been occupied
