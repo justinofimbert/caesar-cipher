@@ -78,8 +78,8 @@ class Board
     diagonal2 = (2...6).step(1).map { |position| flat_board[position] }
     checks[:diagonal2] = diagonal2.uniq.length == 1 && diagonal2.first == player.marker
 
-
     return false unless checks.any? { |_key, value| value == true }
+
     reset
     true
   end
@@ -88,5 +88,44 @@ class Board
 
   def reset
     self.board = Array.new(3) { Array.new(3, nil) }
+  end
+end
+
+game = Game.new
+board = Board.new
+
+puts 'type player 1 nickname:'
+player1 = Player.new
+puts "I'll refer to player 1 as #{player1.name}, now, set their marker:"
+player1.set_marker
+puts "player1 marker: #{player1.marker}"
+
+puts 'now type player 2 nickname'
+player2 = Player.new
+puts "the assigned name is #{player2.name}, its time now time to set their marker:"
+player2.set_marker
+puts "player2 marker: #{player2.marker}"
+
+loop do
+  board.show
+  puts 'player 1 turn'
+  board.place_choice(player1)
+  if board.check_state(player1)
+    game.increase_score(player1)
+    puts "#{player1.name} won this match
+    #{player1.name} has #{Game.scores[player1.name]} points
+    #{player2.name} has #{Game.scores[player2.name]} points"
+    redo
+  end
+
+  board.show
+  puts 'player 2 turn'
+  board.place_choice(player2)
+  if board.check_state(player2)
+    game.increase_score(player2)
+    puts "#{player2.name} won this match
+    #{player1.name} has #{Game.scores[player1.name]} points
+    #{player2.name} has #{Game.scores[player2.name]} points"
+    redo
   end
 end
