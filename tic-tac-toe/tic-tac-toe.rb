@@ -18,7 +18,7 @@ player2.set_marker
 puts "#{player2.name}'s marker: #{player2.marker}"
 
 loop do
-  puts "#{player2.name}'s turn, input a digit from 1 to 9"
+  puts "#{player1.name}'s turn, input a digit from 1 to 9"
   board.show
   board.place_choice(player1)
   if board.check_state(player1)
