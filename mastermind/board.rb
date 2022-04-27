@@ -1,12 +1,9 @@
 class Board
-  attr_reader :max_guesses, :secret_code, :guess_number
+  attr_reader :max_guesses, :guess_number
+  attr_accessor :secret_code
 
   def initialize(max_guesses)
     @max_guesses = max_guesses
-  end
-
-  def set_secret_code=(secret_code)
-    @secret_code = secret_code
   end
 
   def check_guess(guess)
@@ -19,6 +16,7 @@ class Board
 
       else
         return_message += 'incorrect digit'
+      end
     end
 
     return_message

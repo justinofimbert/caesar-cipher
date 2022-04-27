@@ -12,7 +12,7 @@ module Display
   end
 
   def ask_secret_code
-    'You are the codemaker, you have to enter a 4-digit code where every one of its numbers is from 1 to 8'
+    puts 'You are the codemaker, you have to enter a 4-digit code where every one of its numbers is from 1 to 8'
   end
 
   def ask_errorless_code

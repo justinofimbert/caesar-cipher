@@ -10,12 +10,12 @@ class Game
   include Display
 
   def name_player
-    Display.ask_user_name
+    ask_name
     @user_name = gets.chomp
   end
 
-  def new_board
-    Display.ask_max_guesses
+  def create_board
+    ask_max_guesses
     max_guesses_pairs = { 'hard' => 6, 'medium' => 8, 'easy' => 10 }
     max_guesses = 0
 
@@ -28,7 +28,7 @@ class Game
   end
 
   def define_codebreaker
-    Display.ask_user_role
+    ask_role
     answer = gets.chomp
 
     if %w[yes y].include? answer
