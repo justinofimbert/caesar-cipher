@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'display'
 require_relative 'player'
 require_relative 'board'
@@ -38,6 +40,6 @@ class Game
   end
 
   def define_codemaker(codebreaker)
-    codebreaker.is_user? ? Player.new('codemaker', false) : Player.new('codemaker', true) 
+    codebreaker.is_user? ? Player.new('codemaker', false) : Player.new('codemaker', true)
   end
 end
