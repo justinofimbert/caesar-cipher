@@ -1,9 +1,10 @@
-require_relative 'display.rb'
-require_relative 'player.rb'
-require_relative 'board.rb'
+require_relative 'display'
+require_relative 'player'
+require_relative 'board'
 
 class Game
   attr_reader :user_name
+
   include Display
 
   def name_player
@@ -13,7 +14,7 @@ class Game
 
   def new_board
     Display.ask_max_guesses
-    max_guesses_pairs = {'hard' => 6, 'medium' => 8, 'easy' => 10}
+    max_guesses_pairs = { 'hard' => 6, 'medium' => 8, 'easy' => 10 }
     max_guesses = 0
 
     until [6, 8, 10].include? max_guesses
@@ -28,15 +29,15 @@ class Game
     Display.ask_user_role
     answer = gets.chomp
 
-    if ['yes', 'y'].include? answer
-      return Player.new('codebreaker', true)
+    if %w[yes y].include? answer
+      Player.new('codebreaker', true)
 
     else
-      return Player.new('codebreaker', false)
+      Player.new('codebreaker', false)
     end
   end
 
   def define_codemaker(codebreaker)
-    return codebreaker.is_user? ? Player.new('codemaker', false) : Player.new('codemaker', true) 
+    codebreaker.is_user? ? Player.new('codemaker', false) : Player.new('codemaker', true) 
   end
 end
