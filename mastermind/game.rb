@@ -1,4 +1,5 @@
 require_relative 'display.rb'
+require_relative 'player.rb'
 
 class Game
   attr_reader :user_name
@@ -13,7 +14,7 @@ class Game
     Display.ask_user_role
     answer = gets.chomp
 
-    if answer.include? 'y'
+    if answer == 'yes' || answer == 'y'
       return Player.new("codebreaker", true)
 
     else
