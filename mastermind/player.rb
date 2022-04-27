@@ -24,7 +24,7 @@ class Player
         Display.ask_user_secret_code
         user_input = gets.chomp
 
-        if user_input.length == 4 && user_input.split('').all { |value| (value.to_i + 1).between(1, 8) }
+        if user_input.length == 4 && user_input.split('').all { |value| (value.to_i).between(1, 8) }
           secret_code = user_input
 
         else
