@@ -17,7 +17,7 @@ class Player
       secret_code = []
 
       4.times { secret_code.push(rand(1..8)) }
-      secret_code
+      secret_code.join
 
     else
       secret_code = false
