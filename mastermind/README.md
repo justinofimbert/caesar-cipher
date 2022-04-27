@@ -6,4 +6,4 @@ at this point in development the we are just able to define the role of the play
 
 1. populate the Board class so the game is playable and it works as the rules intend
 2. let codebreakers be able to make a guess, follow an algorithm if the codebreaker is the computer, ask for correct user input if the codebreaker is the player.
-3. let codemakers be able to create a sequence of numbers, random if the codemaker is a computer, ask for correct user input if the codemaker is the player.
+3. ~~let codemakers be able to create a sequence of numbers to use as the secret code, random if the codemaker is a computer, ask for correct user input if the codemaker is the player.~~
