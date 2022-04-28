@@ -10,18 +10,19 @@ class Board
   def check_guess(guess)
     return_message = ''
     temp_code = @secret_code.split('')
+    guess = guess.split('')
 
-    guess.split('').each_with_index do |guess_digit, index|
-      if temp_code.include? guess_digit
-        return_message += guess_digit == temp_code[index] ? 'correct position' : 'incorrect position'
 
-      else
-        return_message += 'incorrect digit'
+    guess.each_with_index do |guess_digit, index|
+      if guess_digit == temp_code[index]
+        return_message += 'o'
+
+      elsif temp_code.include? guess_digit
+        return_message += '.'
       end
-
-      @guess_number += 1
     end
 
+    @guess_number += 1
     return_message
   end
 end
