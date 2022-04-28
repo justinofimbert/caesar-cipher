@@ -24,17 +24,31 @@ class Player
       secret_code.join
 
     else
-      secret_code = false
-      until secret_code
-        ask_secret_code
-        user_input = gets.chomp
+      ask_secret_code
+      get_valid_code(ask_errorless_code)
+    end
+  end
 
-        if user_input.length == 4 && user_input.split('').all? { |value| value.to_i.between?(1, 8) }
-          secret_code = user_input
+  def make_guess
+    if is_user? == false
 
-        else
-          ask_errorless_code
-        end
+    else
+      ask_guess
+      get_valid_code(ask_errorless_code)
+    end
+  end
+
+  private
+
+  def get_valid_code(error_message)
+    valid_code = false
+
+    until valid_code
+      user_input = gets.chomp.split('')
+      if user_input.length == 4 && Integer(user_input) rescue false && user_input.all? { |value| value.to_i.between?(1, 8) }
+        valid_code = user_input
+      else
+        error_message
       end
     end
   end

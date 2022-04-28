@@ -18,4 +18,8 @@ module Display
   def ask_errorless_code
     puts 'Oops! Remember! you have to enter a 4-digit code composed just by numbers, where every one of them is different than 0 and 9'
   end
+
+  def ask_guess
+    puts 'Make another guess! Remember! it has to be a valid 4-digit code!'
+  end
 end
