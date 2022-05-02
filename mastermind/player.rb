@@ -25,7 +25,7 @@ class Player
 
     else
       ask_secret_code
-      get_valid_code(ask_errorless_code)
+      get_valid_code()
     end
   end
 
@@ -34,13 +34,13 @@ class Player
 
     else
       ask_guess
-      get_valid_code(ask_errorless_code)
+      get_valid_code()
     end
   end
 
   private
 
-  def get_valid_code(error_message)
+  def get_valid_code()
     valid_code = false
 
     until valid_code
@@ -48,7 +48,7 @@ class Player
       if user_input.length == 4 && Integer(user_input) rescue false && user_input.all? { |value| value.to_i.between?(1, 8) }
         valid_code = user_input
       else
-        error_message
+        ask_errorless_code
       end
     end
   end
