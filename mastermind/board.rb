@@ -24,4 +24,8 @@ class Board
 
     return_string
   end
+
+  def increase_guess_number
+    @guess_number += 1
+  end
 end
