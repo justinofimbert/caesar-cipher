@@ -22,4 +22,16 @@ module Display
   def ask_guess
     puts 'Make another guess! Remember! it has to be a valid 4-digit code!'
   end
+
+  def guess_proximity_message(guess_proximity)
+    puts "#{guess_proximity}"
+  end
+
+  def code_broke(is_user)
+    if is_user
+      puts 'Congratulations you broke the code!!'
+    else
+      puts 'The computer broke the code'
+    end
+  end
 end

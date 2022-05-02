@@ -40,7 +40,7 @@ class Player
 
   private
 
-  def get_valid_code()
+  def get_valid_code
     valid_code = false
 
     until valid_code
