@@ -13,15 +13,15 @@ class Board
     guess = guess.split('')
 
     guess.each_with_index do |guess_digit, index|
-      if guess_digit == temp_code[index]
-        return_string += 'o'
-
-      elsif temp_code.include? guess_digit
-        return_string += '.'
-      end
+      return_string += 'O' if guess_digit == temp_code[index]
     end
 
-    @guess_number += 1
+    guess.each do |guess_digit|
+      return_string += '°' if temp_code.include? guess_digit
+    end
+
+    guess.each { |guess_digit| return_string += '\'' unless temp_code.include? guess_digit }
+
     return_string
   end
 end
