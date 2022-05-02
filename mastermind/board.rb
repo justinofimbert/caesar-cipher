@@ -1,5 +1,5 @@
 class Board
-  attr_reader :max_guesses, :guess_number
+  attr_reader :max_guesses
   attr_accessor :secret_code
 
   def initialize(max_guesses)
@@ -19,9 +19,5 @@ class Board
     guess.each { |guess_digit| return_string += '\'' unless temp_code.include? guess_digit }
 
     return_string
-  end
-
-  def increase_guess_number
-    @guess_number += 1
   end
 end
