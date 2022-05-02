@@ -8,21 +8,20 @@ class Board
   end
 
   def check_guess(guess)
-    return_message = ''
+    return_string = ''
     temp_code = @secret_code.split('')
     guess = guess.split('')
 
-
     guess.each_with_index do |guess_digit, index|
       if guess_digit == temp_code[index]
-        return_message += 'o'
+        return_string += 'o'
 
       elsif temp_code.include? guess_digit
-        return_message += '.'
+        return_string += '.'
       end
     end
 
     @guess_number += 1
-    return_message
+    return_string
   end
 end
