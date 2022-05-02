@@ -6,6 +6,7 @@ require_relative 'board'
 
 class Game
   attr_reader :user_name
+  attr_accessor :board, :codebreaker, :codemaker
 
   include Display
 
@@ -24,7 +25,7 @@ class Game
       max_guesses = max_guesses_pairs[user_input] if max_guesses_pairs.include? user_input
     end
 
-    Board.new(max_guesses)
+    @board = Board.new(max_guesses)
   end
 
   def define_codebreaker
@@ -32,14 +33,14 @@ class Game
     answer = gets.chomp
 
     if %w[yes y].include? answer
-      Player.new('codebreaker', true)
+      @codebreaker = Player.new('codebreaker', true)
 
     else
-      Player.new('codebreaker', false)
+      @codebreaker = Player.new('codebreaker', false)
     end
   end
 
-  def define_codemaker(codebreaker)
-    codebreaker.is_user? ? Player.new('codemaker', false) : Player.new('codemaker', true)
+  def define_codemaker
+    @codemaker = @codebreaker.is_user? ? Player.new('codemaker', false) : Player.new('codemaker', true)
   end
 end
