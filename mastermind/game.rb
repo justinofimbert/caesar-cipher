@@ -41,6 +41,10 @@ class Game
   end
 
   def define_codemaker
-    @codemaker = @codebreaker.is_user? ? Player.new('codemaker', false) : Player.new('codemaker', true)
+    @codemaker = codebreaker.is_user? ? Player.new('codemaker', false) : Player.new('codemaker', true)
+  end
+
+  def define_secret_code
+    board.secret_code = codemaker.create_secret_code
   end
 end
