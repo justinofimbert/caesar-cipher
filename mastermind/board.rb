@@ -13,7 +13,7 @@ class Board
     guess.each_with_index do |guess_digit, index|
       if guess_digit == temp_code[index]
         return_string += 'O' 
-        temp_code.delete_at[index]
+        guess.delete guess_digit
       end
     end
 
