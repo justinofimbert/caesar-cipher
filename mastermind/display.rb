@@ -24,7 +24,7 @@ module Display
   end
 
   def guess_proximity_message(guess_proximity)
-    puts "#{guess_proximity}"
+    puts guess_proximity
   end
 
   def code_broke(is_user)
