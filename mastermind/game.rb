@@ -58,18 +58,33 @@ class Game
     guess_proximity = board.check_guess guess
 
     if guess_proximity == 'OOOO'
-      display.code_broke codebreaker.is_user?
-      @board = Board.new
+      display.call_codebreaker_win codebreaker.is_user?
+      start_another_match(codebreaker)
 
     else
       display.guess_proximity_message guess_proximity
       increase_guess_number
+
+      if guess_number == max_guesses
+        display.call_codemaker_win
+        start_another_match(codemaker)
     end
   end
 
   private
 
+  def switch_roles
+    @codebreaker = Player.new('codemaker', codebreaker.is_user?, codebreaker.score)
+    @codemaker = Player.new('codebreaker', codemaker.is_user?, codemaker.score)
+  end
+
   def increase_guess_number
-    guess_number += 1
+    @guess_number += 1
+  end
+
+  def start_another_match(winner)
+    create_board
+    winner.increase_score
+    switch_roles
   end
 end
