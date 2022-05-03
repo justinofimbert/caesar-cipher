@@ -10,7 +10,12 @@ class Board
     temp_code = @secret_code.split('')
     guess = guess.split('')
 
-    guess.each_with_index { |guess_digit, index| return_string += 'O' if guess_digit == temp_code[index] }
+    guess.each_with_index do |guess_digit, index|
+      if guess_digit == temp_code[index]
+        return_string += 'O' 
+        temp_code.delete_at[index]
+      end
+    end
 
     guess.each { |guess_digit| return_string += '°' if temp_code.include? guess_digit }
 
