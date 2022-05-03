@@ -68,6 +68,7 @@ class Game
       if guess_number == max_guesses
         display.call_codemaker_win
         start_another_match(codemaker)
+      end
     end
   end
 
