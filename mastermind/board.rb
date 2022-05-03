@@ -1,9 +1,7 @@
 class Board
-  attr_reader :max_guesses
   attr_accessor :secret_code
 
-  def initialize(max_guesses)
-    @max_guesses = max_guesses
+  def initialize
     @guess_number = 0
   end
 

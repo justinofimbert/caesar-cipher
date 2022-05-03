@@ -8,4 +8,4 @@ game.define_codebreaker
 game.define_codemaker(codebreaker)
 
 game.define_secret_code
-game.make_and_check_guess
+game.play
