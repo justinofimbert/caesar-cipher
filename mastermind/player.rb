@@ -16,8 +16,6 @@ class Player
   end
 
   def create_secret_code
-    return nil if role != 'codemaker'
-
     if is_user? == false
       secret_code = []
 
@@ -35,7 +33,7 @@ class Player
 
     else
       ask_guess
-      get_valid_code()
+      get_valid_code
     end
   end
 
@@ -51,15 +49,14 @@ class Player
     until valid_code
       user_input = gets.chomp.split('')
       if user_input.length == 4 && is_only_numbers?(user_input) && user_input.all? { |value| value.to_i.between?(1, 8) }
-        valid_code = user_input
+        valid_code = user_input.join
       else
         ask_errorless_code
       end
     end
   end
 
-  def is_only_numbers?(n)
-    Integer n
-    rescue false
+  def is_only_numbers?(code)
+    Integer code.join("") rescue false
   end
 end

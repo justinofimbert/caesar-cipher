@@ -22,9 +22,8 @@ class Game
   def create_board
     ask_max_guesses
     max_guesses_pairs = { 'hard' => 6, 'medium' => 8, 'easy' => 10 }
-    max_guesses = 0
 
-    until [6, 8, 10].include? max_guesses
+    until @max_guesses
       user_input = gets.chomp
       @max_guesses = max_guesses_pairs[user_input] if max_guesses_pairs.include? user_input
     end
