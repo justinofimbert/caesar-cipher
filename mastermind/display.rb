@@ -27,11 +27,19 @@ module Display
     puts guess_proximity
   end
 
-  def code_broke(is_user)
+  def call_codebreaker_win(is_user)
     if is_user
       puts 'Congratulations you broke the code!!'
     else
-      puts 'The computer broke the code'
+      puts 'The computer broke the code!'
+    end
+  end
+
+  def call_codemaker_win(is_user)
+    if is_user
+      puts 'Congratulations! the computer wasn\'t able to crack your code!'
+    else
+      puts 'The computer found the secret code!'
     end
   end
 end

@@ -65,7 +65,7 @@ class Game
       increase_guess_number
 
       if guess_number == max_guesses
-        display.call_codemaker_win
+        display.call_codemaker_win codemaker.is_user?
         start_another_match(codemaker)
       end
     end
