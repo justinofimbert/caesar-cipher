@@ -6,7 +6,7 @@ require_relative 'board'
 
 class Game
   private
-  
+
   attr_reader :user_name, :max_guesses
   attr_accessor :board, :codebreaker, :codemaker, :guess_number
 
@@ -30,6 +30,7 @@ class Game
     end
 
     @board = Board.new
+    @guess_number = 0
   end
 
   def define_codebreaker
