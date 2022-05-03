@@ -75,8 +75,8 @@ class Game
   private
 
   def switch_roles
-    @codebreaker = Player.new('codemaker', codebreaker.is_user?, codebreaker.score)
-    @codemaker = Player.new('codebreaker', codemaker.is_user?, codemaker.score)
+    @codemaker = Player.new('codemaker', codebreaker.is_user?, codebreaker.score)
+    @codebreaker = Player.new('codebreaker', codemaker.is_user?, codemaker.score)
   end
 
   def increase_guess_number
