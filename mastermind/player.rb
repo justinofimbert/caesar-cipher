@@ -52,7 +52,7 @@ class Player
 
     until valid_code
       user_input = gets.chomp.split('')
-      if user_input.length == 4 && is_only_numbers?(user_input) && user_input.all? { |value| value.to_i.between?(1, 8) }
+      if user_input.length == 4 && only_numbers?(user_input) && user_input.all? { |value| value.to_i.between?(1, 8) }
         valid_code = user_input.join
       else
         ask_errorless_code
