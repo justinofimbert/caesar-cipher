@@ -61,15 +61,15 @@ class Game
     guess_proximity = board.check_guess guess
 
     if guess_proximity == 'OOOO'
-      display.call_codebreaker_win codebreaker.is_user?
+      call_codebreaker_win codebreaker.is_user?
       start_another_match(codebreaker)
 
     else
-      display.guess_proximity_message guess_proximity
+      guess_proximity_message guess_proximity
       increase_guess_number
 
       if guess_number == max_guesses
-        display.call_codemaker_win codemaker.is_user?
+        call_codemaker_win codemaker.is_user?
         start_another_match(codemaker)
       end
     end
