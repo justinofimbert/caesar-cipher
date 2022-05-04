@@ -18,10 +18,11 @@ class Player
   def create_secret_code
     if is_user? == false
       secret_code = []
+      available_numbers = [1, 2, 3, 4, 5, 6, 7, 8]
 
-      4.times { secret_code.push(rand(1..8)) }
-      secret_code.join
-
+      4.times { secret_code.push(available_numbers.delete(available_numbers.sample)) }
+      puts secret_code.join
+      return secret_code.join
     else
       ask_secret_code
       get_valid_code()
@@ -48,15 +49,11 @@ class Player
   private
 
   def get_valid_code
-    valid_code = false
-
-    until valid_code
+    loop do
       user_input = gets.chomp.split('')
-      if user_input.length == 4 && only_numbers?(user_input) && user_input.all? { |value| value.to_i.between?(1, 8) }
-        valid_code = user_input.join
-      else
-        ask_errorless_code
-      end
+      return user_input.join if user_input.length == 4 && only_numbers?(user_input) && user_input.all? { |value| value.to_i.between?(1, 8) }
+
+      ask_errorless_code
     end
   end
 
