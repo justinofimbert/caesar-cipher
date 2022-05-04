@@ -10,9 +10,9 @@ class Board
     temp_code = @secret_code.split('')
     guess = guess.split('')
 
-    guess.each_with_index do |guess_digit, index|
-      if guess_digit == temp_code[index]
-        return_string += 'O' 
+    guess.reverse.each_with_index do |guess_digit, index|
+      if guess_digit == temp_code.reverse[index]
+        return_string += 'O'
         guess.delete guess_digit
       end
     end
