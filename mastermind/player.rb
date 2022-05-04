@@ -60,7 +60,7 @@ class Player
     end
   end
 
-  def is_only_numbers?(code)
+  def only_numbers?(code)
     Integer code.join("") rescue false
   end
 end
