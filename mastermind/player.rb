@@ -28,11 +28,15 @@ class Player
     end
   end
 
-  def make_guess
+  def make_guess(guess_number)
     if is_user? == false
 
     else
-      ask_guess
+      if guess_number.zero?
+        ask_first_guess
+      else
+        ask_guess
+      end
       get_valid_code
     end
   end

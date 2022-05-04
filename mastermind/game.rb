@@ -14,6 +14,10 @@ class Game
 
   include Display
 
+  def initialize
+    explain_game
+  end
+
   def name_player
     ask_name
     @user_name = gets.chomp
@@ -53,7 +57,7 @@ class Game
   end
 
   def play
-    guess = codebreaker.make_guess
+    guess = codebreaker.make_guess guess_number
     guess_proximity = board.check_guess guess
 
     if guess_proximity == 'OOOO'
