@@ -4,9 +4,5 @@ at this point in development the we are just able to define the role of the play
 
 ### To-do
 
-1. ~~populate the Board class so the game is playable and it works as the rules intend~~
-2. ~~let codebreakers be able to make a guess~~, follow an algorithm if the codebreaker is the computer~~, ask for correct user input if the codebreaker is the player.~~
-3. ~~let codemakers be able to create a sequence of numbers to use as the secret code, random if the codemaker is a computer, ask for correct user input if the codemaker is the player.~~
-4. ~~make it so the board exists, it can store a secret 4-digit code and it checks how correct the guess is.~~
-5. connect make_guess and check_guess methods to create a cycle of guess -> check-the-guess -> guess-again/end-match
-6. ~~create the system to track player's scores and determine who is the winner from a best-of-five~~
+1. Make computer be able to guess
+2. connect make_guess and check_guess methods to create a cycle of guess -> check-the-guess -> guess-again/end-match
