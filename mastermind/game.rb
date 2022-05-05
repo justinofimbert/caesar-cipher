@@ -40,12 +40,9 @@ class Game
     ask_role
     answer = gets.chomp
 
-    if %w[yes y].include? answer
-      @codebreaker = Player.new('codebreaker', true)
+    return @codebreaker = Player.new('codebreaker', true) if %w[yes y].include? answer
 
-    else
-      @codebreaker = Player.new('codebreaker', false)
-    end
+    @codebreaker = Player.new('codebreaker', false)
   end
 
   def define_codemaker
