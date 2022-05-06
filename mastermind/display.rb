@@ -55,7 +55,6 @@ module Display
     return puts "#{user_name}: #{codebreaker_score}" if user_name
 
     puts "Computer: #{codebreaker_score}"
-    end
   end
 
   def tell_codemaker_score(codemaker_score, user_name = false)
