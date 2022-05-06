@@ -16,6 +16,13 @@ class Game
 
   def initialize
     explain_game
+    ask_max_guesses
+    max_guesses_pairs = { 'hard' => 6, 'medium' => 8, 'easy' => 10 }
+
+    until @max_guesses
+      user_input = gets.chomp
+      @max_guesses = max_guesses_pairs[user_input] if max_guesses_pairs.include? user_input
+    end
   end
 
   def name_player
@@ -24,14 +31,6 @@ class Game
   end
 
   def create_board
-    ask_max_guesses
-    max_guesses_pairs = { 'hard' => 6, 'medium' => 8, 'easy' => 10 }
-
-    until @max_guesses
-      user_input = gets.chomp
-      @max_guesses = max_guesses_pairs[user_input] if max_guesses_pairs.include? user_input
-    end
-
     @board = Board.new
     @guess_number = 0
   end
@@ -89,6 +88,7 @@ class Game
     puts "\nScores:"
     show_scores
     switch_roles
+    define_secret_code
   end
 
   def show_scores
