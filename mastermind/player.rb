@@ -24,7 +24,7 @@ class Player
 
       4.times { secret_code.push(available_numbers.delete(available_numbers.sample)) }
       puts secret_code.join
-      return secret_code.join
+      secret_code.join
     else
       ask_secret_code
       get_valid_code()
