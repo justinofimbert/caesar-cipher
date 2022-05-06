@@ -86,6 +86,18 @@ class Game
   def start_another_match(winner)
     create_board
     winner.increase_score
+    puts "\nScores:"
+    show_scores
     switch_roles
+  end
+
+  def show_scores
+    if codebreaker.is_user?
+      tell_codebreaker_score(codebreaker.score, user_name)
+      tell_codemaker_score(codemaker.score)
+    else
+      tell_codemaker_score(codemaker.score, user_name)
+      tell_codebreaker_score(codebreaker.score)
+    end
   end
 end

@@ -50,4 +50,20 @@ module Display
       puts 'The computer found the secret code!'
     end
   end
+
+  def tell_codebreaker_score(codebreaker_score, user_name = false)
+    if user_name
+      return puts "#{user_name}: #{codebreaker_score}"
+    else
+      puts "Computer: #{codebreaker_score}"
+    end
+  end
+
+  def tell_codemaker_score(codemaker_score, user_name = false)
+    if user_name
+      return puts "#{user_name}: #{codemaker_score}"
+    else
+      puts "Computer: #{codemaker_score}"
+    end
+  end
 end
