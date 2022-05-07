@@ -11,8 +11,6 @@ class Player
     @role = role
     @is_user = is_user
     @score = score
-    if role == 'codebreaker' && is_user == false
-      @guesses = []
   end
 
   def is_user?
