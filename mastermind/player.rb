@@ -11,6 +11,8 @@ class Player
     @role = role
     @is_user = is_user
     @score = score
+    if role == 'codebreaker' && is_user == false
+      @guesses = []
   end
 
   def is_user?
@@ -18,7 +20,7 @@ class Player
   end
 
   def create_secret_code
-    if is_user? == false
+    unless is_user?
       secret_code = []
       available_numbers = [1, 2, 3, 4, 5, 6, 7, 8]
 
@@ -32,7 +34,7 @@ class Player
   end
 
   def make_guess(guess_number)
-    if is_user? == false
+    unless is_user?
 
     else
       if guess_number.zero?
