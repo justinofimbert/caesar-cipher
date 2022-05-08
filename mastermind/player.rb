@@ -11,7 +11,7 @@ class Player
     @role = role
     @is_user = is_user
     @score = score
-    @last_guess_pair = false if role == 'codebreaker' && is_user? == false
+    @last_guess_pair = false
     @possible_guesses = %w[1 2 3 4 5 6 7 8].permutation(4).to_a if role == 'codebreaker' && is_user == false
   end
 
