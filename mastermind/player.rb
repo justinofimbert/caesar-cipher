@@ -37,7 +37,8 @@ class Player
     unless is_user?
       return @possible_guesses.first.join unless last_guess_pair
 
-
+      clean_possible_guesses
+      @possible_guesses.first.join
 
     else
       if guess_number.zero?
@@ -66,5 +67,9 @@ class Player
 
   def only_numbers?(code)
     Integer code.join("") rescue false
+  end
+
+  def clean_possible_guesses(last_guess, last_guess_answer)
+    
   end
 end
