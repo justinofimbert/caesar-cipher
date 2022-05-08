@@ -55,6 +55,7 @@ class Game
   def play
     guess = codebreaker.make_guess guess_number
     guess_proximity = board.check_guess guess
+    codebreaker.guess_pairs.append([guess, guess_proximity]) unless codebreaker.is_user?
 
     if guess_proximity == 'OOOO'
       call_codebreaker_win codebreaker.is_user?

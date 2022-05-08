@@ -11,7 +11,8 @@ class Player
     @role = role
     @is_user = is_user
     @score = score
-    possible_guesses = %w[1 2 3 4 5 6 7 8].permutation(4).to_a if role == 'codebreaker' && is_user == false
+    @guess_pairs = [] if role == 'codebreaker' && is_user? == false
+    @possible_guesses = %w[1 2 3 4 5 6 7 8].permutation(4).to_a if role == 'codebreaker' && is_user == false
   end
 
   def is_user?
@@ -34,7 +35,10 @@ class Player
 
   def make_guess(guess_number)
     unless is_user?
-      
+      return last_guess = @possible_guesses.first.join if guess_pairs.empty?
+
+
+
     else
       if guess_number.zero?
         ask_first_guess
