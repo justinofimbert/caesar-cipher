@@ -5,22 +5,32 @@ class Board
     @guess_number = 0
   end
 
-  def check_guess(guess)
-    return_string = ''
-    temp_code = @secret_code.split('')
+  def create_hint guess
     guess = guess.split('')
+    hint = ''
 
-    guess.reverse.each_with_index do |guess_digit, index|
-      if guess_digit == temp_code.reverse[index]
-        return_string += 'O'
-        guess.delete guess_digit
-      end
-    end
+    correct_matches(guess).times { hint += 'O'}
 
-    guess.each { |guess_digit| return_string += '°' if temp_code.include? guess_digit }
+    white_pegs = (correct_digits(guess) - correct_matches(guess))
+    white_pegs.times { hint += 'o' }
 
-    guess.each { |guess_digit| return_string += '\'' unless temp_code.include? guess_digit }
+    no_peg = 4 - correct_digits(guess)
+    no_peg.times {hint += '\''}
 
-    return_string
+    hint
+  end
+
+  private
+
+  def correct_matches(guess)
+    pegs = 0
+    guess.each_with_index { |current_digit, index| pegs += 1 if current_digit == @secret_code[index] }
+    pegs
+  end
+
+  def correct_digits(guess)
+    pegs = 0
+    guess.each { |current_digit| pegs += 1 if @secret_code.include? current_digit }
+    pegs
   end
 end
