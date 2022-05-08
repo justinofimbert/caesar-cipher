@@ -29,7 +29,7 @@ class Player
       secret_code.join
     else
       ask_secret_code
-      get_valid_code()
+      get_valid_code
     end
   end
 
