@@ -54,15 +54,15 @@ class Game
 
   def play
     guess = codebreaker.make_guess guess_number
-    guess_proximity = board.check_guess guess
-    codebreaker.last_guess_pair = [guess, guess_proximity] unless codebreaker.is_user?
+    hint = board.create_hint guess
+    codebreaker.last_guess_pair = [guess, hint] unless codebreaker.is_user?
 
-    if guess_proximity == 'OOOO'
+    if hint == 'OOOO'
       call_codebreaker_win codebreaker.is_user?
       start_another_match(codebreaker)
 
     else
-      guess_proximity_message guess_proximity
+      hint_message hint
       increase_guess_number
 
       if guess_number == max_guesses

@@ -31,8 +31,8 @@ module Display
     puts 'Make another guess! Remember! it has to be a valid 4-digit code!'
   end
 
-  def guess_proximity_message(guess_proximity)
-    puts guess_proximity
+  def hint_message(hint)
+    puts hint
   end
 
   def call_codebreaker_win(is_user)
