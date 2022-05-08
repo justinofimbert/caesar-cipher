@@ -35,7 +35,7 @@ class Player
 
   def make_guess(guess_number)
     unless is_user?
-      return last_guess = @possible_guesses.first.join unless last_guess_pair
+      return @possible_guesses.first.join unless last_guess_pair
 
 
 
