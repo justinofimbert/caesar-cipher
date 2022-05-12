@@ -3,6 +3,13 @@
 require_relative 'display'
 
 class Player
+  # during each match there are two instances of the Player Class
+  # there is one codebreaker and there is one codemaker
+  # instances of the player class will have a value of the is_user instance variable
+  # if its value is true, this means that the user will be providing the input to this instance's actions
+  # if its value is false, this means that the output off this instance, will be provided by and algorithm
+
+
   attr_reader :role, :is_user, :score
 
   include Display
