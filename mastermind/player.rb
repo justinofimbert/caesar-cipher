@@ -8,24 +8,28 @@ class Player
   include Display
 
   def initialize(role, is_user, score = 0)
+    # string
+    # is either 'codebreaker' or 'codemaker'
     @role = role
-    # either codebreaker or codemaker
 
+    # boolean
+    # true if player instance gets input from the user, false if the player instance gets input from algorithms
     @is_user = is_user
-    # boolean, true if player instance gets input from the user
-    # false if the player instance gets input from algorithms
 
+    # number, player's score at a certain moment in time
     @score = score
-    # player's score at a certain moment in time
 
-    @last_guess_pair = false
-    # only relevant if @role == codebreaker, this contains the last guess proposed by the player
+    # array
+    # only relevant if @role == codebreaker
+    # this contains the last guess proposed by the player
     # and it also contains the hint that corresponds to that guess
+    @last_guess_pair = false
 
-    @possible_guesses = %w[1 2 3 4 5 6 7 8].permutation(4).to_a if role == 'codebreaker' && is_user == false
-    # if this player is the codebreaker and it doesn't get its input from the user
+    # array
+    # only relevant if this player is the codebreaker and it doesn't get its input from the user
     # (aka the computer is the codebreaker)
     # we compute all the possible guesses, to start trimming them with the algorithm
+    @possible_guesses = %w[1 2 3 4 5 6 7 8].permutation(4).to_a if role == 'codebreaker' && is_user == false
   end
 
   def is_user?
