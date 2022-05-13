@@ -40,10 +40,15 @@ class Player
   end
 
   def is_user?
+    # returns true if player instance receives input by the user, else returns false
     @is_user
   end
 
   def create_secret_code
+    # if is_user? is truthy, the computer waits for the user to input a valid code
+    # if is_user? is falsy, the computer enters a random valid code
+
+    # if is_user? is falsy
     unless is_user?
       secret_code = []
       available_numbers = [1, 2, 3, 4, 5, 6, 7, 8]
@@ -51,6 +56,8 @@ class Player
       4.times { secret_code.push(available_numbers.delete(available_numbers.sample)) }
       puts secret_code.join
       secret_code.join
+
+    # if is_user? is truthy
     else
       ask_secret_code
       get_valid_code
