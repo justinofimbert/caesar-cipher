@@ -45,10 +45,10 @@ class Player
   end
 
   def create_secret_code
-    # it is expected to be used with a codemaker object
-    # if codemaker is person, the computer waits for the user to input a valid code
-    # if codemaker is not person, the computer enters a random valid code
-    # outputs string of length 4 containing digits from 1 to 8
+    # it is expected to be used with an instance of the player class where role == 'codemaker'
+    # if codemaker is user, the computer waits for the user to input a valid code
+    # if codemaker is not user, the computer enters a random valid code
+    # outputs string of length 4 containing digits from 1 to 8, and there is not a digit that appear twice
 
     # if is person do
     unless is_user?
@@ -67,7 +67,11 @@ class Player
   end
 
   def make_guess(guess_number)
-
+    # it is expected to be used with an instance of the player class where role == 'codebreaker'
+    # if codebreaker is user, the computer asks the user to input a valid guess
+    # if codebreaker is not user, the computer chooses a valid guess using the swaszek's algorithm
+    # outputs string of length 4 containing digits from 1 to 8, and there is not a digit that appear twice
+    
     unless is_user?
       return @possible_guesses.first.join unless last_guess_pair
 
