@@ -40,7 +40,6 @@ class Player
   end
 
   def is_user?
-    # returns true if player instance receives input by the user, else returns false
     @is_user
   end
 
