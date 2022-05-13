@@ -95,7 +95,7 @@ class Player
 
   private
 
-  def get_valid_code
+  def input_valid_code
     loop do
       user_input = gets.chomp.split('')
       return user_input.join if user_input.length == 4 && only_numbers?(user_input) && user_input.all? { |value| value.to_i.between?(1, 8) }
