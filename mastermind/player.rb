@@ -71,13 +71,15 @@ class Player
     # if codebreaker is user, the computer asks the user to input a valid guess
     # if codebreaker is not user, the computer chooses a valid guess using the swaszek's algorithm
     # outputs string of length 4 containing digits from 1 to 8, and there is not a digit that appear twice
-    
+
+    # if is not person do
     unless is_user?
       return @possible_guesses.first.join unless last_guess_pair
 
       clean_possible_guesses
       @possible_guesses.first.join
 
+    # if is person do
     else
       if guess_number.zero?
         ask_first_guess
