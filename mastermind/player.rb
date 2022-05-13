@@ -45,8 +45,10 @@ class Player
   end
 
   def create_secret_code
+    # it is expected to be used with a codemaker object
     # if codemaker is person, the computer waits for the user to input a valid code
     # if codemaker is not person, the computer enters a random valid code
+    # outputs string of length 4 containing digits from 1 to 8
 
     # if is person do
     unless is_user?
@@ -65,6 +67,7 @@ class Player
   end
 
   def make_guess(guess_number)
+
     unless is_user?
       return @possible_guesses.first.join unless last_guess_pair
 
