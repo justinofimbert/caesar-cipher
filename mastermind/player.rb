@@ -105,6 +105,12 @@ class Player
   end
 
   def only_numbers?(code)
+    # input: array, contains four string digits
+    # receives an array, only_numbers? joins the array to a string and tries to convert it to an integer
+    # if the convertion is possible, outputs the integer
+    # if the convertion is impossible, outputs false
+    # output: boolean, joining the array to a string and converting it to an integer is possible
+    
     Integer code.join("") rescue false
   end
 
