@@ -17,8 +17,12 @@ class Game
   def initialize
     explain_game
     ask_max_guesses
+
+    # each pair contains the max number of guesses the codebreaker will be 
+    # able to make before the codemaker has an instant win
     max_guesses_pairs = { 'hard' => 6, 'medium' => 8, 'easy' => 10 }
 
+    # ask the user a difficulty and set it depending on the max_guesses_pairs above
     until @max_guesses
       user_input = gets.chomp
       @max_guesses = max_guesses_pairs[user_input] if max_guesses_pairs.include? user_input
