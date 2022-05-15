@@ -57,6 +57,14 @@ class Game
   end
 
   def define_codemaker
+
+    # a new instance of the Player class with:
+    # role = 'codemaker'
+    # if codebreaker.is_user? == true 
+    #   is_user = false
+
+    # if codebreaker.is_user == false
+    #   is_user = true
     @codemaker = codebreaker.is_user? ? Player.new('codemaker', false) : Player.new('codemaker', true)
   end
 
