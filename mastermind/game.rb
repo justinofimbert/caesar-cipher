@@ -95,7 +95,14 @@ class Game
   private
 
   def switch_roles
+    # @codemaker is a new instance of the Player class, where:
+    # is_user only if the codebreaker was the user during the last round
+    # has the score that the codebreaker had at the end of the last round
     @codemaker = Player.new('codemaker', codebreaker.is_user?, codebreaker.score)
+
+    # @codebreaker is a new instance of the Player class, where:
+    # is_user only if the codemaker was the user during the last round
+    # has the score that the codemaker had at the end of the last round
     @codebreaker = Player.new('codebreaker', codemaker.is_user?, codemaker.score)
   end
 
