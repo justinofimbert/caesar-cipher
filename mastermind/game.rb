@@ -43,8 +43,16 @@ class Game
     ask_role
     answer = gets.chomp
 
+    # if answer is 'yes' or 'y', the @codebreaker instance variable
+    # is assigned to a new instance of the Player class with:
+    # role = 'codebreaker'
+    # is_user = true
     return @codebreaker = Player.new('codebreaker', true) if %w[yes y].include? answer
 
+
+    # else
+    # role = 'codebreaker'
+    # is_user = false
     @codebreaker = Player.new('codebreaker', false)
   end
 
