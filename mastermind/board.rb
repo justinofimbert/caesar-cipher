@@ -1,4 +1,8 @@
 class Board
+  # during each match there is only one instance of the Board class
+  # the Board class tracks the number of guesses that have been made
+  # this is done with the @guess_number instance variable
+  
   attr_accessor :secret_code
 
   def initialize
