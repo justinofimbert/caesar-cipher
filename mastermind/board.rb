@@ -19,7 +19,7 @@ class Board
     white_pegs.times { hint += 'o' }
 
     no_peg = 4 - correct_digits(guess)
-    no_peg.times {hint += '\''}
+    no_peg.times { hint += '\'' }
 
     hint
   end
