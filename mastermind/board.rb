@@ -2,10 +2,11 @@ class Board
   # during each match there is only one instance of the Board class
   # the Board class tracks the number of guesses that have been made
   # this is done with the @guess_number instance variable
-  
+
   attr_accessor :secret_code
 
   def initialize
+    # a board is initialized and the @guess_number instance variable is declared with a value of 0
     @guess_number = 0
   end
 
