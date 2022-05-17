@@ -6,7 +6,6 @@ class Board
   attr_accessor :secret_code
 
   def initialize
-    # a board is initialized and the @guess_number instance variable is declared with a value of 0
     @guess_number = 0
   end
 
