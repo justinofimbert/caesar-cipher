@@ -33,8 +33,6 @@ class Board
   end
 
   def correct_digits(guess)
-    pegs = 0
-    guess.each { |current_digit| pegs += 1 if @secret_code.include? current_digit }
-    pegs
+    guess.reduce { |pegs, current_digit| pegs + 1 if @secret_code.include? current_digit }
   end
 end
