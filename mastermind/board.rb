@@ -13,7 +13,7 @@ class Board
     guess = guess.split('')
     hint = ''
 
-    correct_matches(guess).times { hint += 'O'}
+    correct_matches(guess).times { hint += 'O' }
 
     white_pegs = (correct_digits(guess) - correct_matches(guess))
     white_pegs.times { hint += 'o' }
