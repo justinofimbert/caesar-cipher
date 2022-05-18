@@ -9,7 +9,7 @@ class Board
     @guess_number = 0
   end
 
-  def create_hint guess
+  def create_hint(guess)
     guess = guess.split('')
     hint = ''
 
