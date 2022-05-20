@@ -10,15 +10,27 @@ class Board
   end
 
   def create_hint(guess)
+    # guess is a string of digits from 1 to 8 of length four
     guess = guess.split('')
+
+    # hint is initiated as an empty string which will be populated later with "pegs"
     hint = ''
 
+    # for each digit the codebreaker got right, hint is concatenated with an "O"
     correct_matches(guess).times { hint += 'O' }
 
+    # correct_digits is the number of digits that are in guess and @secret_code
+    # if we substract the number of correct_digits and correct_matches
+    # we obtain the number of white pegs, or the number of digits that are not correctly placed
     white_pegs = (correct_digits(guess) - correct_matches(guess))
+
+    # for each white peg, we concatenate an "o" with hint
     white_pegs.times { hint += 'o' }
 
+    # 4 - correct_digits is the number of digits that the codebreaker got wrong
     no_peg = 4 - correct_digits(guess)
+
+    # for each digit that the codebreaker got wrong, we concatenate to hint an "'"
     no_peg.times { hint += '\'' }
 
     hint
