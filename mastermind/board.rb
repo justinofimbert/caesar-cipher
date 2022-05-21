@@ -40,11 +40,13 @@ class Board
 
   def correct_matches(guess)
     pegs = 0
+    # each digit in guess that is the same as a digit in @secret_code in the same position is correct_match
     guess.each_with_index { |current_digit, index| pegs += 1 if current_digit == @secret_code[index] }
     pegs
   end
 
   def correct_digits(guess)
+    # each digit in guess that is included in @secret_code is a correct digit.
     guess.reduce { |pegs, current_digit| pegs + 1 if @secret_code.include? current_digit }
   end
 end
