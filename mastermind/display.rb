@@ -54,13 +54,13 @@ module Display
     end
   end
 
-  def tell_codebreaker_score(codebreaker_score, user_name = false)
+  def tell_codebreaker_score(codebreaker_score, user_name: false)
     return puts "#{user_name}: #{codebreaker_score}" if user_name
 
     puts "Computer: #{codebreaker_score}"
   end
 
-  def tell_codemaker_score(codemaker_score, user_name = false)
+  def tell_codemaker_score(codemaker_score, user_name: false)
     return puts "#{user_name}: #{codemaker_score}" if user_name
 
     puts "Computer: #{codemaker_score}"
