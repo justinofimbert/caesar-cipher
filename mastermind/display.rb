@@ -1,7 +1,7 @@
 module Display
   # module included in Game and Player classes
   # used to contact with the player through the command line
-  
+
   def explain_game
     puts "Welcome to Mastermind! \nin this game the codemaker creates a code and the codebreaker has to guess it!\nThe number of guesses(opportunities) you have depends on the chosen difficulty \nAfter each guess there will be a string of 4 markers that will signal you how close the codebreaker's guess was to the secret code \neach 'O' means that you guessed the number and position of a digit \neach '°' means that you guessed just the number and got the position wrong \neach ''' means that you got wrong a number"
   end
